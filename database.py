@@ -40,7 +40,7 @@ def select_table_statement(table_name):
     cursor_obj.execute(statement)
     
     print("All the data:")
-    output1 = cursor_obj.fetchmany(2)
+    output1 = cursor_obj.fetchmany(10)
     for row in output1:
         print(row)
 
@@ -65,3 +65,8 @@ def rename_table(old_name, new_name):
                     RENAME TO {new_name};'''
     df = pd.read_sql_query(statement, conn)
     print(df)
+
+def drop_table(table_name):
+    conn, cursor_obj = sqlite_connection()
+    cursor_obj.execute(f'''DROP TABLE {table_name}''')
+

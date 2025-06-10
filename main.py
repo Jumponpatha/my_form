@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
@@ -12,6 +12,8 @@ load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
+# app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("SQLITE_DATABASE_URL")
+# db = SQLAlchemy(app)
 CORS(app)
 
 @app.route("/")
@@ -27,6 +29,7 @@ def form():
         email = form.email.data
         phone = form.phone.data
         birthdate = form.birthdate.data
+        
         sql_script = f'''INSERT INTO users
                             (firstname, lastname, email, phone, birthdate)
                         VALUES (?, ?, ?, ?, ?)
@@ -36,7 +39,7 @@ def form():
         conn.commit()
         # Close the connection
         conn.close()
-        return render_template('index.html', form=form)
+        return redirect(url_for('form'))
     else:
         return render_template('form.html', form=form)
         

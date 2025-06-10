@@ -1,4 +1,4 @@
-from database import create_table, show_table,select_table_statement
+from database import create_table, show_table, drop_table
 
 # Create user form table
 def create_table_user():
@@ -17,4 +17,4 @@ def create_table_user():
     print(show_table())
 
 if __name__ == "__main__":
-    select_table_statement('users')
+    create_table_user()
