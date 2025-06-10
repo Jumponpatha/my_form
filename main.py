@@ -4,9 +4,13 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from werkzeug.security import generate_password_hash
 import os
+# import jwt
+from datetime import datetime, timedelta
+from functools import wraps
 from dotenv import load_dotenv
 from models import UserForm
 from database import sqlite_connection
+
 # Load variables from .env file
 load_dotenv()
 
@@ -19,6 +23,14 @@ CORS(app)
 @app.route("/")
 def index():
     return render_template('index.html')
+
+@app.route("/login")
+def login():
+    return render_template('login.html')
+
+@app.route("/signup")
+def signup():
+    return render_template('signup.html')
 
 @app.route("/form", methods=['GET', 'POST'])
 def form():
