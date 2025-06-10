@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyAPP - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module">
+    import { Home, Info, LogIn, FileText } from "https://cdn.skypack.dev/lucide";
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("[data-icon]").forEach(el => {
+        const icon = {
+          home: Home,
+          about: Info,
+        }[el.dataset.icon];
+        el.appendChild(icon().node);
+      });
+    });
+  </script>
+</head>
+<body class="bg-white min-h-screen flex flex-col">
+
+  <!-- Navigation Bar -->
+  <header class="bg-blue-900 text-white p-4 shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">MyAPP</h1>
+      <nav class="flex space-x-6 items-center text-sm font-medium">
+        <a href="/" class="flex items-center space-x-1 hover:text-blue-300">
+          <span data-icon="home" class="w-4 h-4"></span>
+          <span>Home</span>
+        </a>
+        <a href="#about" class="flex items-center space-x-1 hover:text-blue-300">
+          <span data-icon="about" class="w-4 h-4"></span>
+          <span>About</span>
+        </a>
+        <a href="/users" class="flex items-center space-x-1 hover:text-blue-300">
+          <span data-icon="login" class="w-4 h-4"></span>
+          <span>Table</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="flex-grow flex flex-col justify-center items-center text-center px-6 py-20">
+    <h2 class="text-4xl font-bold text-blue-900 mb-4">Welcome to MyAPP</h2>
+    <p class="text-lg text-gray-700 mb-8 max-w-xl">
+      Manage personal information, submit forms, and explore our features easily.
+    </p>
+  </main>
+
+  <!-- About Section -->
+  <section id="about" class="bg-gray-100 py-12 px-6 text-center">
+    <h3 class="text-2xl font-bold text-blue-900 mb-4">About MyAPP</h3>
+    <p class="text-gray-700 max-w-2xl mx-auto">
+      MyAPP is a simple web application designed to help users input and manage personal information through an intuitive and secure interface.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 py-4 border-t mt-10">
+    &copy; 2025 MyAPP. All rights reserved.
+  </footer>
+
+</body>
+</html>

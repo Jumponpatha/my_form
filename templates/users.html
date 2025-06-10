@@ -8,17 +8,31 @@
 </head>
 <body class="bg-white min-h-screen">
 
-  <!-- Header -->
+  <!-- Navigation Bar -->
   <header class="bg-blue-900 text-white p-4 shadow-md">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">MyAPP - User Records</h1>
+      <h1 class="text-2xl font-bold">MyAPP</h1>
+      <nav class="flex space-x-6 items-center text-sm font-medium">
+        <a href="/" class="flex items-center space-x-1 hover:text-blue-300">
+          <span data-icon="home" class="w-4 h-4"></span>
+          <span>Home</span>
+        </a>
+        <a href="#about" class="flex items-center space-x-1 hover:text-blue-300">
+          <span data-icon="about" class="w-4 h-4"></span>
+          <span>About</span>
+        </a>
+        <a href="/users" class="flex items-center space-x-1 hover:text-blue-300">
+          <span data-icon="login" class="w-4 h-4"></span>
+          <span>Table</span>
+        </a>
+      </nav>
     </div>
   </header>
 
   <!-- Table Container -->
   <main class="p-10">
     <div class="max-w-6xl mx-auto bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-      <h2 class="text-2xl font-bold mb-6 text-blue-900 text-center">Submitted User Information</h2>
+      <h2 class="text-2xl font-bold mb-6 text-blue-900 text-center">Users Table</h2>
       <div class="overflow-x-auto">
         <table class="min-w-full divide-y divide-blue-200 border border-blue-300">
           <thead class="bg-blue-50 text-blue-900">

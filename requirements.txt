@@ -4,3 +4,4 @@ flask-WTF
 pandas
 flask-sqlalchemy
 python-dotenv
+email_validator

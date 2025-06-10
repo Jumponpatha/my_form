@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()  # take environment variables from .env.
 
 # Get the database URL from the environment
-db_path = os.getenv("SQLITE_DATABASE_URL")
+db_path = os.getenv("SQLITE_DATABASE_URI")
 
 # Remove "sqlite:///" prefix if needed
 if db_path.startswith("sqlite:///"):
@@ -20,7 +20,7 @@ if not os.path.exists(os.path.dirname(db_file)):
     print(f"Created missing directory: {os.path.dirname(db_file)}")
 
 def sqlite_connection():
-    conn = sqlite3.connect(db_path)
+    conn = sqlite3.connect(db_file)
     cursor_obj = conn.cursor()
     return conn, cursor_obj
 
