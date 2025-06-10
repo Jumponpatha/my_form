@@ -1,11 +1,10 @@
-from create_app import app
+from flask_wtf import FlaskForm
+from wtforms import StringField, DateField
+from wtforms.validators import InputRequired
 
-db = SQLAlchemy(app)
-
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    public_id = db.Column(db.String(50), unique=True)
-    first_name = db.Column(db.String(50))
-    last_name = db.Column(db.String(50))
-    email = db.Column(db.String(20))
-    phone = db.Column(Date)
+class UserForm(FlaskForm):
+    firstname = StringField('First Name', validators=[InputRequired()])
+    lastname = StringField('Last Name', validators=[InputRequired()])
+    email = StringField('Email', validators=[InputRequired()])
+    phone = StringField('Phone', validators=[InputRequired()])
+    birthdate = DateField('Data of Birhth', format='%Y-%m-%d', validators=[InputRequired()])
